@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sanjay Sudheesh | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0b1120;
+    color:#ffffff;
+    overflow-x:hidden;
+    position:relative;
+}
+
+
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left, rgba(59,130,246,0.08), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(99,102,241,0.06), transparent 25%);
+    z-index:-2;
+}
+
+
+
+body::after{
+    content:'';
+    position:fixed;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size:50px 50px;
+    z-index:-1;
+}
+
+
+
+nav{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:rgba(11,17,32,0.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#60a5fa;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#cbd5e1;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#60a5fa;
+}
+
+
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:120px 10% 80px;
+}
+
+.hero-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:70px;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+    animation:fadeUp 1s ease;
+}
+
+.hero-text h1{
+    font-size:4.5rem;
+    margin-bottom:15px;
+    line-height:1.1;
+}
+
+.hero-text h1 span{
+    color:#60a5fa;
+}
+
+.hero-text h3{
+    color:#94a3b8;
+    font-size:1.5rem;
+    margin-bottom:25px;
+    font-weight:400;
+}
+
+.hero-text p{
+    color:#cbd5e1;
+    line-height:1.9;
+    max-width:650px;
+    margin-bottom:35px;
+}
+
+
+
+.hero-image{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    animation:float 5s ease-in-out infinite;
+}
+
+.hero-image img{
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid rgba(255,255,255,0.08);
+    box-shadow:
+    0 0 0 10px rgba(255,255,255,0.02),
+    0 20px 50px rgba(0,0,0,0.5);
+}
+
+
+
+.buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 30px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.4s;
+}
+
+.btn-primary{
+    background:#2563eb;
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#1d4ed8;
+    transform:translateY(-5px);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,0.15);
+    color:white;
+    background:rgba(255,255,255,0.03);
+}
+
+.btn-outline:hover{
+    background:rgba(255,255,255,0.08);
+    transform:translateY(-5px);
+}
+
+
+
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.4rem;
+    margin-bottom:60px;
+    color:#ffffff;
+}
+
+
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+
+
+.card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:24px;
+    padding:30px;
+    transition:0.4s;
+    backdrop-filter:blur(10px);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(96,165,250,0.3);
+    box-shadow:0 20px 40px rgba(0,0,0,0.35);
+}
+
+.card h3{
+    color:#60a5fa;
+    margin-bottom:15px;
+    font-size:1.3rem;
+}
+
+.card p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+}
+
+.skill{
+    padding:14px 24px;
+    border-radius:40px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.3s;
+    color:#e2e8f0;
+}
+
+.skill:hover{
+    background:#2563eb;
+    transform:translateY(-4px);
+}
+
+
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    color:#cbd5e1;
+    margin:12px 0;
+}
+
+
+
+footer{
+    padding:30px;
+    text-align:center;
+    color:#94a3b8;
+    border-top:1px solid rgba(255,255,255,0.05);
+    background:#0b1120;
+}
+
+
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+
+
+@media(max-width:900px){
+
+    .hero-container{
+        flex-direction:column-reverse;
+        text-align:center;
+    }
+
+    .buttons{
+        justify-content:center;
+    }
+
+    .hero-text h1{
+        font-size:3rem;
+    }
+
+}
+
+@media(max-width:768px){
+
+    nav{
+        padding:18px 5%;
+    }
+
+    nav ul{
+        gap:12px;
+        font-size:13px;
+    }
+
+    .hero-image img{
+        width:240px;
+        height:240px;
+    }
+
+    .section-title{
+        font-size:2rem;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+<nav>
+
+    <div class="logo">Sanjay</div>
+
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#training">Training</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-container">
+
+        <div class="hero-text">
+
+            <h1>Hi, I'm <span>Sanjay Sudheesh</span></h1>
+
+            <h3>Python Django Developer | MCA Graduate</h3>
+
+            <p>
+                I'm a passionate and detail-oriented MCA graduate focused on building
+                modern web applications using Python and Django. I enjoy transforming
+                ideas into responsive, user-friendly, and scalable digital experiences.
+                From developing e-commerce platforms like ShopZone to working on
+                AI-powered real-time systems, I love solving problems through clean code
+                and creative thinking.
+            </p>
+
+            <div class="buttons">
+
+                
+
+                <a href="https://github.com/sanjaysudheesh2002" class="btn btn-outline">
+                    GitHub
+                </a>
+
+                <a href="https://linkedin.com/in/sanjay-sudheesh-322811267" class="btn btn-outline">
+                    LinkedIn
+                </a>
+
+                <a href="Sanjay_Sudheesh_Resume.pdf" download class="btn btn-primary">
+                    Download CV
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="profile.jpg" alt="Sanjay Sudheesh">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- About -->
+
+<section id="about">
+
+    <h2 class="section-title">About Me</h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <p>
+                Detail-oriented and highly motivated MCA graduate with
+                strong expertise in frontend development, Python programming,
+                and Django full stack development. Experienced in building
+                responsive web applications, e-commerce systems,
+                and real-time application solutions.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Skills -->
+
+<section id="skills">
+
+    <h2 class="section-title">Technical Skills</h2>
+
+    <div class="skills">
+
+        <div class="skill">Python</div>
+        <div class="skill">Django</div>
+        <div class="skill">HTML5</div>
+        <div class="skill">CSS3</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Bootstrap</div>
+        <div class="skill">jQuery</div>
+        <div class="skill">MySQL</div>
+        <div class="skill">Git</div>
+        <div class="skill">GitHub</div>
+
+    </div>
+
+</section>
+
+<!-- Projects -->
+
+<section id="projects">
+
+    <h2 class="section-title">Projects</h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>ShopZone E-Commerce Website</h3>
+
+            <p>
+                Developed a modern e-commerce platform using Django framework.
+                Implemented admin, staff, and user modules with product management,
+                order assignment, authentication system, and responsive UI design.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Face Identification & Emotion Detection</h3>
+
+            <p>
+                Built a real-time face identification system using Faster R-CNN
+                with emotion detection for surveillance and crowd analysis.
+                Optimized image processing performance and accuracy.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Angel Eye</h3>
+
+            <p>
+                Developed an assistive application for visually impaired users
+                using live camera input and real-time obstacle detection
+                to improve mobility and user safety.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Training -->
+
+<section id="training">
+
+    <h2 class="section-title">Training & Internship</h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>Python Django Full Stack Course</h3>
+
+            <p>
+                Completed a 4-month Full Stack Python Django course
+                at Regional Technologies.
+                Learned frontend development, backend development,
+                Django framework, database integration,
+                and CRUD operations.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Full Stack Internship</h3>
+
+            <p>
+                Completed a 4-month internship at Regional Technologies,
+                Calicut in Django Framework (Python).
+                Worked on developing an e-commerce website with
+                frontend design, backend logic, and database handling.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Education -->
+
+<section>
+
+    <h2 class="section-title">Education</h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>Master of Computer Applications (MCA)</h3>
+            <p>Kerala, India</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Bachelor of Computer Applications (BCA)</h3>
+            <p>Kerala, India</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Diploma in Computer Applications (DCA)</h3>
+            <p>Kerala, India</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Contact -->
+
+<section id="contact" class="contact">
+
+    <h2 class="section-title">Contact</h2>
+
+    <p>Email: sanjaysudheesh1@gmail.com</p>
+
+    <p>Phone: +91 9846130753</p>
+
+    <p>Kozhikode, Kerala, India</p>
+
+    <div class="buttons" style="margin-top:30px; justify-content:center;">
+
+        <a href="Sanjay_Sudheesh_Resume.pdf" download class="btn btn-primary">
+            Download CV
+        </a>
+
+        <a href="https://github.com/sanjaysudheesh2002" class="btn btn-outline">
+            GitHub
+        </a>
+
+        <a href="https://linkedin.com/in/sanjay-sudheesh-322811267" class="btn btn-outline">
+            LinkedIn
+        </a>
+
+    </div>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+    <p>
+        © 2026 Sanjay Sudheesh | Portfolio
+    </p>
+
+</footer>
+
+</body>
+</html>
